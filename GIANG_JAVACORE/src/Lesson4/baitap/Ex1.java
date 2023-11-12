@@ -1,6 +1,6 @@
 package Lesson4.baitap;
 
-import Lesson4.lythuyet.hinhhoc.HinhChuNhat;
+import Lesson4.lythuyet.hinhhoc.HinhTamGiac;
 import Lesson4.lythuyet.hinhhoc.Hinhtron;
 import Lesson4.lythuyet.hinhhoc.Hinhvuong;
 
@@ -29,32 +29,51 @@ public class Ex1 {
         }
         while ((x!=1)&&(x!=2)&&(x!=3));
 
-
-
         switch (x){
+
             case 1:Scanner a = new Scanner(System.in);
                 System.out.println("Diện tích hình tròn cần tính của bạn có bán kính là bao nhiêu ");
-                float r = a.nextFloat();
+                int r;
+                do
+                {r = a.nextInt();
+                    if(r<0){
+                        System.out.println("Xin nhập lại");}
+                }
+                while (r<0);
                 float dientichHT = Hinhtron.dienTich(r);
                 System.out.println(" Vậy diện tích là :");
                 System.out.println(dientichHT);
                 break;
+
             case 2:Scanner b = new Scanner(System.in);
-                System.out.println("Diện tích hình vuông cần tính của bạn có cạnh là bao nhiêu ");
-                int canh = b.nextInt();
+                System.out.println("Diện tích hình Vuông cần tính của bạn có cạnh là bao nhiêu ");
+                int canh;
+                do
+                {canh = b.nextInt();
+                if(canh<0){
+                    System.out.println("Xin nhập lại");}
+                }
+                while (canh<0);
                 int dientichHV = Hinhvuong.dienTich(canh);
                 System.out.println(" Vậy diện tích là :");
                 System.out.println(dientichHV);
                 break;
-            case 3:Scanner c = new Scanner(System.in);
-                System.out.println("Diện tích hình chữ nhật cần tính của bạn có chiều dài và chiều rộng là bao nhiêu ");
-                int chieudai = c.nextInt();
-                int chieurong = c.nextInt();
-                int dientichHCN = HinhChuNhat.Dientich(chieudai,chieurong);
-                System.out.println(" Vậy diện tích là :");
-                System.out.println(dientichHCN);
-                break;
 
+            case 3:Scanner c = new Scanner(System.in);
+                System.out.println("Diện tích hình tam giác cần tính của bạn có đáy và chiều cao là bao nhiêu ");
+                int day;
+                int cao ;
+                do
+                {day = c.nextInt();
+                    cao = c.nextInt();
+                if((day<0)||(cao<0)){
+                    System.out.println("Xin nhập lại");}
+                }
+                while ((day<0)||(cao<0));
+                float dientichHTG = HinhTamGiac.Dientich(day,cao);
+                System.out.println(" Vậy diện tích là :");
+                System.out.println(dientichHTG);
+                break;
 
 
 
